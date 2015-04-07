@@ -333,7 +333,7 @@ class PeriodicTaskAdmin(admin.ModelAdmin):
             'classes': ('extrapretty', 'wide', 'collapse'),
         }),
         ('Execution Options', {
-            'fields': ('expires', 'queue', 'exchange', 'routing_key'),
+            'fields': ('expires', 'queue', 'exchange', 'routing_key', 'task_id'),
             'classes': ('extrapretty', 'wide', 'collapse'),
         }),
     )

@@ -61,7 +61,8 @@ class ModelEntry(ScheduleEntry):
         self.options = {'queue': model.queue,
                         'exchange': model.exchange,
                         'routing_key': model.routing_key,
-                        'expires': model.expires}
+                        'expires': model.expires,
+                        'task_id': model.task_id}
         self.total_run_count = model.total_run_count
         self.model = model
 
@@ -126,6 +127,7 @@ class ModelEntry(ScheduleEntry):
         fields['queue'] = options.get('queue')
         fields['exchange'] = options.get('exchange')
         fields['routing_key'] = options.get('routing_key')
+        fields['task_id'] = options.get('task_id')
         return cls(PeriodicTask._default_manager.update_or_create(
             name=name, defaults=fields,
         ))

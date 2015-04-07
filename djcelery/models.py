@@ -223,6 +223,10 @@ class PeriodicTask(models.Model):
         _('Keyword arguments'), blank=True, default='{}',
         help_text=_('JSON encoded keyword arguments'),
     )
+    task_id = models.CharField(
+        _('task id'), max_length=200, unique=True,
+        help_text=_('Custom Task ID that will be assigned to executing task'),
+    )
     queue = models.CharField(
         _('queue'), max_length=200, blank=True, null=True, default=None,
         help_text=_('Queue defined in CELERY_QUEUES'),
