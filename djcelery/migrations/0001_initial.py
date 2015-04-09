@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
                 ('task', models.CharField(max_length=200, verbose_name='task name')),
                 ('args', models.TextField(default='[]', help_text='JSON encoded positional arguments', verbose_name='Arguments', blank=True)),
                 ('kwargs', models.TextField(default='{}', help_text='JSON encoded keyword arguments', verbose_name='Keyword arguments', blank=True)),
-                ('task_id', models.CharField(help_text='Custom Task ID that will be assigned to executing task', unique=True, max_length=200, verbose_name='task id')),
+                ('task_id', models.CharField(help_text='Custom Task ID that will be assigned to executing task', default=None, blank=True, null=True, max_length=200, verbose_name='task id')),
                 ('queue', models.CharField(default=None, max_length=200, blank=True, help_text='Queue defined in CELERY_QUEUES', null=True, verbose_name='queue')),
                 ('exchange', models.CharField(default=None, max_length=200, null=True, verbose_name='exchange', blank=True)),
                 ('routing_key', models.CharField(default=None, max_length=200, null=True, verbose_name='routing key', blank=True)),
